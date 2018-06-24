@@ -46,26 +46,26 @@ if errorlevel 1 goto failed
 echo IS help done
 pause
 
-call .\compile.bat
-if errorlevel 1 goto failed
-echo ANSI compile done
-pause
-echo - Setup.exe
-if exist .\setup-sign.bat (
-  call .\setup-sign.bat
-) else (
-  files\iscc setup.iss /qp /DNOSIGNTOOL
-)
-if errorlevel 1 goto failed
-echo - Renaming files
-cd output
-if errorlevel 1 goto failed
-move /y mysetup.exe innosetup-%VER%.exe
-if errorlevel 1 goto failed
-cd ..
-if errorlevel 1 goto failed
-echo ANSI setup done
-pause
+REM call .\compile.bat
+REM if errorlevel 1 goto failed
+REM echo ANSI compile done
+REM pause
+REM echo - Setup.exe
+REM if exist .\setup-sign.bat (
+  REM call .\setup-sign.bat
+REM ) else (
+  REM files\iscc setup.iss /qp /DNOSIGNTOOL
+REM )
+REM if errorlevel 1 goto failed
+REM echo - Renaming files
+REM cd output
+REM if errorlevel 1 goto failed
+REM move /y mysetup.exe innosetup-%VER%.exe
+REM if errorlevel 1 goto failed
+REM cd ..
+REM if errorlevel 1 goto failed
+REM echo ANSI setup done
+REM pause
 
 call .\compile-unicode.bat
 if errorlevel 1 goto failed

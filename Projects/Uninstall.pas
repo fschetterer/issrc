@@ -613,7 +613,7 @@ begin
         end;
 
         { Confirm uninstall }
-        if not Silent and not VerySilent then begin
+        if not Silent and not VerySilent and not FindCmdLineSwitch('NOCONFIRMDLG', true) then begin
           if LoggedMessageBoxFmt1(msgConfirmUninstall, UninstLog.AppName, Title,
              MB_ICONQUESTION or MB_YESNO or MB_DEFBUTTON2, True, IDYES) <> IDYES then
             Abort;
